@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,20 @@
 		8967B0E62442502A007173AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8967B0E52442502A007173AF /* Assets.xcassets */; };
 		8967B0E92442502A007173AF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8967B0E82442502A007173AF /* Preview Assets.xcassets */; };
 		8967B0EC2442502A007173AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8967B0EA2442502A007173AF /* LaunchScreen.storyboard */; };
+		8967B0F52442508C007173AF /* Sliders in Frameworks */ = {isa = PBXBuildFile; productRef = 8967B0F42442508C007173AF /* Sliders */; };
+		8967B0F7244250CE007173AF /* JoystickExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8967B0F6244250CE007173AF /* JoystickExample.swift */; };
+		89ED1594244257950057DFBB /* LSliderExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED1593244257950057DFBB /* LSliderExample.swift */; };
+		89ED1596244266E20057DFBB /* ActivityRings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED1595244266E20057DFBB /* ActivityRings.swift */; };
+		89ED159824426DB10057DFBB /* HSBColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED159724426DB10057DFBB /* HSBColorPicker.swift */; };
+		89ED159A24426F9D0057DFBB /* RadialPadExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED159924426F9C0057DFBB /* RadialPadExample.swift */; };
+		89ED159D2442700D0057DFBB /* HueCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED159C2442700D0057DFBB /* HueCircleView.swift */; };
+		89ED159F244272970057DFBB /* OverflowSliderExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED159E244272970057DFBB /* OverflowSliderExample.swift */; };
+		89ED15A2244275B30057DFBB /* KnobStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED15A1244275B30057DFBB /* KnobStyleExample.swift */; };
+		89ED15A4244276AA0057DFBB /* DefaultRSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED15A3244276AA0057DFBB /* DefaultRSlider.swift */; };
+		89ED15A7244277430057DFBB /* RGBColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED15A6244277430057DFBB /* RGBColorPicker.swift */; };
+		89ED15AA24427A4D0057DFBB /* DefaultTrackPadExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED15A924427A4D0057DFBB /* DefaultTrackPadExample.swift */; };
+		89ED15AC24427C9E0057DFBB /* GraphingGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED15AB24427C9E0057DFBB /* GraphingGrid.swift */; };
+		89ED15AE24427E9F0057DFBB /* DefaultRadialPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED15AD24427E9F0057DFBB /* DefaultRadialPad.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +38,19 @@
 		8967B0E82442502A007173AF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8967B0EB2442502A007173AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8967B0ED2442502A007173AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8967B0F6244250CE007173AF /* JoystickExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickExample.swift; sourceTree = "<group>"; };
+		89ED1593244257950057DFBB /* LSliderExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSliderExample.swift; sourceTree = "<group>"; };
+		89ED1595244266E20057DFBB /* ActivityRings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRings.swift; sourceTree = "<group>"; };
+		89ED159724426DB10057DFBB /* HSBColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSBColorPicker.swift; sourceTree = "<group>"; };
+		89ED159924426F9C0057DFBB /* RadialPadExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialPadExample.swift; sourceTree = "<group>"; };
+		89ED159C2442700D0057DFBB /* HueCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HueCircleView.swift; sourceTree = "<group>"; };
+		89ED159E244272970057DFBB /* OverflowSliderExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverflowSliderExample.swift; sourceTree = "<group>"; };
+		89ED15A1244275B30057DFBB /* KnobStyleExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobStyleExample.swift; sourceTree = "<group>"; };
+		89ED15A3244276AA0057DFBB /* DefaultRSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRSlider.swift; sourceTree = "<group>"; };
+		89ED15A6244277430057DFBB /* RGBColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBColorPicker.swift; sourceTree = "<group>"; };
+		89ED15A924427A4D0057DFBB /* DefaultTrackPadExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTrackPadExample.swift; sourceTree = "<group>"; };
+		89ED15AB24427C9E0057DFBB /* GraphingGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphingGrid.swift; sourceTree = "<group>"; };
+		89ED15AD24427E9F0057DFBB /* DefaultRadialPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRadialPad.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8967B0F52442508C007173AF /* Sliders in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +87,12 @@
 				8967B0DF24425025007173AF /* AppDelegate.swift */,
 				8967B0E124425025007173AF /* SceneDelegate.swift */,
 				8967B0E324425025007173AF /* ContentView.swift */,
+				89ED159E244272970057DFBB /* OverflowSliderExample.swift */,
+				8967B0F6244250CE007173AF /* JoystickExample.swift */,
+				89ED15A5244277250057DFBB /* LSliderExamples */,
+				89ED159B24426FFB0057DFBB /* RadialPadExamples */,
+				89ED15A824427A070057DFBB /* TrackpadExamples */,
+				89ED15A0244275570057DFBB /* RSliderExamples */,
 				8967B0E52442502A007173AF /* Assets.xcassets */,
 				8967B0EA2442502A007173AF /* LaunchScreen.storyboard */,
 				8967B0ED2442502A007173AF /* Info.plist */,
@@ -73,6 +107,45 @@
 				8967B0E82442502A007173AF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		89ED159B24426FFB0057DFBB /* RadialPadExamples */ = {
+			isa = PBXGroup;
+			children = (
+				89ED159C2442700D0057DFBB /* HueCircleView.swift */,
+				89ED15AD24427E9F0057DFBB /* DefaultRadialPad.swift */,
+				89ED159924426F9C0057DFBB /* RadialPadExample.swift */,
+			);
+			path = RadialPadExamples;
+			sourceTree = "<group>";
+		};
+		89ED15A0244275570057DFBB /* RSliderExamples */ = {
+			isa = PBXGroup;
+			children = (
+				89ED1595244266E20057DFBB /* ActivityRings.swift */,
+				89ED15A3244276AA0057DFBB /* DefaultRSlider.swift */,
+				89ED15A1244275B30057DFBB /* KnobStyleExample.swift */,
+			);
+			path = RSliderExamples;
+			sourceTree = "<group>";
+		};
+		89ED15A5244277250057DFBB /* LSliderExamples */ = {
+			isa = PBXGroup;
+			children = (
+				89ED1593244257950057DFBB /* LSliderExample.swift */,
+				89ED15A6244277430057DFBB /* RGBColorPicker.swift */,
+			);
+			path = LSliderExamples;
+			sourceTree = "<group>";
+		};
+		89ED15A824427A070057DFBB /* TrackpadExamples */ = {
+			isa = PBXGroup;
+			children = (
+				89ED159724426DB10057DFBB /* HSBColorPicker.swift */,
+				89ED15AB24427C9E0057DFBB /* GraphingGrid.swift */,
+				89ED15A924427A4D0057DFBB /* DefaultTrackPadExample.swift */,
+			);
+			path = TrackpadExamples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,6 +164,9 @@
 			dependencies = (
 			);
 			name = SlidersExamples;
+			packageProductDependencies = (
+				8967B0F42442508C007173AF /* Sliders */,
+			);
 			productName = SlidersExamples;
 			productReference = 8967B0DC24425025007173AF /* SlidersExamples.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +195,9 @@
 				Base,
 			);
 			mainGroup = 8967B0D324425024007173AF;
+			packageReferences = (
+				8967B0F32442508C007173AF /* XCRemoteSwiftPackageReference "Sliders" */,
+			);
 			productRefGroup = 8967B0DD24425025007173AF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -146,9 +225,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89ED159824426DB10057DFBB /* HSBColorPicker.swift in Sources */,
+				8967B0F7244250CE007173AF /* JoystickExample.swift in Sources */,
 				8967B0E024425025007173AF /* AppDelegate.swift in Sources */,
+				89ED1594244257950057DFBB /* LSliderExample.swift in Sources */,
 				8967B0E224425025007173AF /* SceneDelegate.swift in Sources */,
+				89ED15A4244276AA0057DFBB /* DefaultRSlider.swift in Sources */,
+				89ED159F244272970057DFBB /* OverflowSliderExample.swift in Sources */,
+				89ED15A2244275B30057DFBB /* KnobStyleExample.swift in Sources */,
+				89ED15AE24427E9F0057DFBB /* DefaultRadialPad.swift in Sources */,
+				89ED15AA24427A4D0057DFBB /* DefaultTrackPadExample.swift in Sources */,
+				89ED1596244266E20057DFBB /* ActivityRings.swift in Sources */,
+				89ED15A7244277430057DFBB /* RGBColorPicker.swift in Sources */,
+				89ED159D2442700D0057DFBB /* HueCircleView.swift in Sources */,
 				8967B0E424425025007173AF /* ContentView.swift in Sources */,
+				89ED159A24426F9D0057DFBB /* RadialPadExample.swift in Sources */,
+				89ED15AC24427C9E0057DFBB /* GraphingGrid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +434,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8967B0F32442508C007173AF /* XCRemoteSwiftPackageReference "Sliders" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kieranb662/Sliders.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8967B0F42442508C007173AF /* Sliders */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8967B0F32442508C007173AF /* XCRemoteSwiftPackageReference "Sliders" */;
+			productName = Sliders;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8967B0D424425025007173AF /* Project object */;
 }
