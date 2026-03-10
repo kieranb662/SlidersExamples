@@ -1,9 +1,8 @@
+// Swift toolchain version 6.0
+// Running macOS version 26.3
+// Created on 4/11/20.
 //
-//  DefaultTrackPadExample.swift
-//  SlidersExamples
-//
-//  Created by Kieran Brown on 4/11/20.
-//  Copyright © 2020 BrownandSons. All rights reserved.
+// Author: Kieran Brown
 //
 
 import SwiftUI

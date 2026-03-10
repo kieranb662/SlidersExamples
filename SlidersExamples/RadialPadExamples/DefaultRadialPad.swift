@@ -1,9 +1,8 @@
+// Swift toolchain version 6.0
+// Running macOS version 26.3
+// Created on 4/11/20.
 //
-//  DefaultRadialPad.swift
-//  SlidersExamples
-//
-//  Created by Kieran Brown on 4/11/20.
-//  Copyright © 2020 BrownandSons. All rights reserved.
+// Author: Kieran Brown
 //
 
 import SwiftUI
@@ -12,9 +11,11 @@ import Sliders
 struct DefaultRadialPad: View {
     @State var radius: Double = 0.4
     @State var angle: Angle = .zero
+    
     var body: some View {
         ZStack {
             Color(white: 0.2)
+            
             RadialPad(offset: $radius, angle: $angle)
                 .frame(width: 200, height: 200)
         }

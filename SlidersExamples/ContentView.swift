@@ -1,16 +1,15 @@
+// Swift toolchain version 6.0
+// Running macOS version 26.3
+// Created on 4/11/20.
 //
-//  ContentView.swift
-//  SlidersExamples
-//
-//  Created by Kieran Brown on 4/11/20.
-//  Copyright © 2020 BrownandSons. All rights reserved.
+// Author: Kieran Brown
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 Section(header: Text("LSlider")) {
                     NavigationLink("LSlider", destination: LSliderExample())
@@ -22,6 +21,7 @@ struct ContentView: View {
                     NavigationLink("Knob Style", destination: KnobStyleExample())
                     NavigationLink("Activity Rings", destination: ActivityRingExample())
                 }
+                
                 Section(header: Text("OverflowSlider")) {
                     NavigationLink("OverflowSlider", destination: OverflowSliderExample())
                 }
@@ -32,6 +32,7 @@ struct ContentView: View {
                     NavigationLink("HSB Color Picker", destination: HSBColorPickerExample())
                     
                 }
+                
                 Section(header: Text("RadialPad")) {
                     NavigationLink("Default Style", destination: DefaultRadialPad())
                     NavigationLink("HSB Color Picker", destination: CircularHSBPickerExample())
