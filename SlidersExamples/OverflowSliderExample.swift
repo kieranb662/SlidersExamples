@@ -15,14 +15,17 @@ struct OverflowSliderExample: View {
         VStack {
             Text("1. Try dragging the inside of the capsule and then release it as fast as you can ")
                 .frame(height: 75)
+            
             Text("2. After drag the blue thumb past the left or right edge of the capsule")
                 .frame(height: 75)
+            
             OverflowSlider(value: $value, range: -1000...1000, spacing: 20, isDisabled: false)
-            .mask(Capsule())
+                .mask(Capsule())
                 .overlay(Capsule().stroke(Color.blue))
-            .frame(height: 50)
+                .frame(height: 50)
                 .padding(.horizontal, 30)
-        }.navigationBarTitle("Overflow Slider")
+        }
+        .navigationBarTitle("Overflow Slider")
     }
 }
 

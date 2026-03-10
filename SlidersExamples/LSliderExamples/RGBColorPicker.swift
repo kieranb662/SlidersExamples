@@ -8,9 +8,6 @@
 
 import SwiftUI
 import Sliders
-import Shapes
-
-
 
 struct RGBSliderStyle: LSliderStyle {
     enum ColorType: String, CaseIterable {

@@ -15,7 +15,7 @@ struct DefaultTrackPadExample: View {
     var body: some View {
         TrackPad($value)
             .frame(width: 200, height: 300)
-        .navigationBarTitle("Default TrackPad")
+            .navigationBarTitle("Default TrackPad")
     }
 }
 

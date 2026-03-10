@@ -16,8 +16,9 @@ struct DefaultRadialPad: View {
         ZStack {
             Color(white: 0.2)
             RadialPad(offset: $radius, angle: $angle)
-            .frame(width: 200, height: 200)
-        }.navigationBarTitle("Default RadialPad Style")
+                .frame(width: 200, height: 200)
+        }
+        .navigationBarTitle("Default RadialPad Style")
     }
 }
 

@@ -8,8 +8,37 @@
 
 import SwiftUI
 import Sliders
-import Shapes
 
+public struct Pentagon: Shape {
+    /// Creates a square bottomed pentagon.
+    public init() {}
+    
+    var insetAmount: CGFloat = 0
+    
+    public func path(in rect: CGRect) -> Path {
+        let insetRect: CGRect = rect.insetBy(dx: insetAmount, dy: insetAmount)
+        let w = insetRect.width
+        let h = insetRect.height
+        
+        return Path { path in
+            path.move(to:    CGPoint(x: w/2, y:   0))
+            path.addLine(to: CGPoint(x:   0, y: h/2))
+            path.addLine(to: CGPoint(x:   0, y:   h))
+            path.addLine(to: CGPoint(x:   w, y:   h))
+            path.addLine(to: CGPoint(x:   w, y: h/2))
+            path.closeSubpath()
+        }
+        .offsetBy(dx: insetAmount, dy: insetAmount)
+    }
+}
+
+extension Pentagon: InsettableShape {
+    public func inset(by amount: CGFloat) -> some InsettableShape {
+        var shape = self
+        shape.insetAmount += amount
+        return shape
+    }
+}
 
 
 struct BrightnessSliderStyle: LSliderStyle {
@@ -29,18 +58,24 @@ struct BrightnessSliderStyle: LSliderStyle {
                 .fill(color)
             Pentagon()
                 .stroke(Color.white, style: .init(lineWidth: 3, lineJoin: .round))
-        }.frame(width: strokeWidth/2, height: 0.66*strokeWidth)
-            .offset(x: 0, y: 0.16*strokeWidth-1.5)
+        }
+        .frame(width: strokeWidth/2, height: 0.66*strokeWidth)
+        .offset(x: 0, y: 0.16*strokeWidth-1.5)
     }
     
     func makeTrack(configuration: LSliderConfiguration) -> some View {
         GeometryReader { proxy in
             ZStack {
                 RoundedRectangle(cornerRadius: 5)
-                    .fill(LinearGradient(gradient: self.gradient, startPoint: .leading, endPoint: .trailing))
+                    .fill(
+                        LinearGradient(gradient: self.gradient,
+                                       startPoint: .leading,
+                                       endPoint: .trailing)
+                    )
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(Color.white)
-            }.frame(width: proxy.size.width)
+            }
+            .frame(width: proxy.size.width)
         }
     }
 }
@@ -54,22 +89,28 @@ struct SaturationHueRadialPad: RadialPadStyle {
     }
     
     func makeThumb(configuration: RadialPadConfiguration) -> some View {
-        let color = Color(hue: (configuration.angle.degrees/360), saturation: configuration.radialOffset, brightness: self.brightness)
+        let color = Color(hue: (configuration.angle.degrees/360),
+                          saturation: configuration.radialOffset,
+                          brightness: self.brightness)
         return ZStack {
             Circle()
                 .fill(Color.white)
+            
             Circle()
                 .inset(by: 6)
                 .fill(color)
-        }.frame(width: 45, height: 45)
+        }
+        .frame(width: 45, height: 45)
     }
     
     func makeTrack(configuration: RadialPadConfiguration) -> some View {
         ZStack {
             Circle()
                 .fill(Color(hue: 0, saturation: 0, brightness: self.brightness))
+            
             HueCircleView()
                 .blendMode(.plusDarker)
+            
             Circle()
                 .stroke(Color.white, lineWidth: 2)
         }
@@ -87,9 +128,15 @@ struct CircularHSBColorPicker: View {
             RadialPad(offset: $saturation,
                       angle: Binding(get: { Angle(degrees: self.hue*360) },
                                      set: { self.hue = $0.degrees/360 }))
-                .radialPadStyle(SaturationHueRadialPad(brightness: brightness))
+            .radialPadStyle(SaturationHueRadialPad(brightness: brightness))
+            
             LSlider($brightness, range: 0...1, angle: .zero)
-                .linearSliderStyle(BrightnessSliderStyle(hue: hue, saturation: saturation, brightness: brightness, strokeWidth: sliderHeight))
+                .linearSliderStyle(
+                    BrightnessSliderStyle(hue: hue,
+                                          saturation: saturation,
+                                          brightness: brightness,
+                                          strokeWidth: sliderHeight)
+                )
                 .frame(height: sliderHeight)
         }
     }
@@ -103,10 +150,12 @@ struct CircularHSBPickerExample: View {
     var body: some View {
         ZStack {
             Color(white: 0.2)
+            
             CircularHSBColorPicker(hue: $hue, saturation: $saturation, brightness: $brightness)
                 .frame(height: 400)
                 .padding(50)
-        }.navigationBarTitle("Circular HSB Picker")
+        }
+        .navigationBarTitle("Circular HSB Picker")
     }
 }
 

@@ -14,9 +14,11 @@ struct KnobStyleExample: View {
     var body: some View {
         ZStack {
             Color(white: 0.2)
+            
             RSlider($value)
-            .radialSliderStyle(KnobStyle())
-        }.navigationBarTitle("RSlider Knob Style")
+                .radialSliderStyle(KnobStyle())
+        }
+        .navigationBarTitle("RSlider Knob Style")
     }
 }
 

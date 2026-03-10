@@ -11,11 +11,15 @@ import Sliders
 
 struct DefaultRSlider: View {
     @State var value: Double = 0.5
+    
     var body: some View {
         ZStack {
             Color(white: 0.2)
-            RSlider($value).frame(width: 200, height: 200)
-        }.navigationBarTitle("Default RSlider Style")
+            
+            RSlider($value)
+                .frame(width: 200, height: 200)
+        }
+        .navigationBarTitle("Default RSlider Style")
     }
 }
 

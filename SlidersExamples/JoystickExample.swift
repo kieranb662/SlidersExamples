@@ -8,7 +8,6 @@
 
 import SwiftUI
 import Sliders
-import CGExtender
 
 
 struct JoystickExample: View {
@@ -28,65 +27,76 @@ struct JoystickExample: View {
             Group {
                 HStack {
                     Spacer()
-                    Text("x").bold().frame(width: 100)
-                    Text("y").bold().frame(width: 100)
+                    Text("x").bold()
+                        .frame(width: 100)
+                    Text("y").bold()
+                        .frame(width: 100)
                 }
                 Divider()
                 HStack {
                     Text("Translation:").bold().fixedSize()
                     Spacer()
-                    Text("\(String(format: "%.0f", state.translation.width))").frame(width: 100)
-                    Text("\(String(format: "%.0f", state.translation.height))").frame(width: 100)
+                    Text("\(String(format: "%.0f", state.translation.width))")
+                        .frame(width: 100)
+                    Text("\(String(format: "%.0f", state.translation.height))")
+                        .frame(width: 100)
                 }
                 Divider()
                 HStack {
                     Text("Velocity:").bold().fixedSize()
                     Spacer()
-                    Text("\(String(format: "%.0f", state.velocity.width))").frame(width: 100)
-                    Text("\(String(format: "%.0f", state.velocity.height))").frame(width: 100)
+                    Text("\(String(format: "%.0f", state.velocity.width))")
+                        .frame(width: 100)
+                    Text("\(String(format: "%.0f", state.velocity.height))")
+                        .frame(width: 100)
                 }
                 Divider()
                 HStack {
                     Text("Acceleration:").bold().fixedSize()
                     Spacer()
-                    Text("\(String(format: "%.0f", state.acceleration.width))").frame(width: 100)
-                    Text("\(String(format: "%.0f", state.acceleration.height))").frame(width: 100)
+                    Text("\(String(format: "%.0f", state.acceleration.width))")
+                        .frame(width: 100)
+                    Text("\(String(format: "%.0f", state.acceleration.height))")
+                        .frame(width: 100)
                 }
                 Divider()
             }
-         
+            
             HStack {
-                Toggle(isOn: $canLock, label: {Text("Can Lock")}).frame(maxWidth: 150)
+                Toggle(isOn: $canLock, label: {Text("Can Lock")})
+                    .frame(maxWidth: 150)
                 Spacer()
                 Text(self.state.isLocked ? "Locked" : "Not Locked")
                 Spacer()
             }
             
-        }.offset(x: 0, y: -200)
-            .padding(.horizontal, 30)
+        }
+        .offset(x: 0, y: -200)
+        .padding(.horizontal, 30)
     }
     var body: some View {
         Joystick(state: $state, radius: 50, canLock: canLock, isDisabled: false)
-            .background(Rectangle()
-                .fill(Color.red)
-                .frame(width: 50, height: 50)
-                .rotationEffect(angle)
-                .offset(rectOffset)
-                .onReceive(timer, perform: { (time) in
-                    if self.state.translation != .zero {
-                        let scale = 5*sqrt(self.state.translation.magnitudeSquared)/50.0
-                        let x = scale*cos(self.state.angle.radians)
-                        let y = scale*sin(self.state.angle.radians)
-                        self.rectOffset += CGSize(width: x, height: y)
-                    }
-                    
-                    if self.state.isLocked {
-                        self.angle += Angle(degrees: 1)
-                    }
-                })
-                .animation(.linear))
+            .background(
+                Rectangle()
+                    .fill(Color.red)
+                    .frame(width: 50, height: 50)
+                    .rotationEffect(angle)
+                    .offset(rectOffset)
+                    .onReceive(timer, perform: { (time) in
+                        if self.state.translation != .zero {
+                            let scale = 5*sqrt(self.state.translation.magnitudeSquared)/50.0
+                            let x = scale*cos(self.state.angle.radians)
+                            let y = scale*sin(self.state.angle.radians)
+                            self.rectOffset += CGSize(width: x, height: y)
+                        }
+                        
+                        if self.state.isLocked {
+                            self.angle += Angle(degrees: 1)
+                        }
+                    })
+            )
             .overlay(overlay)
-        .navigationBarTitle("Joystick")
+            .navigationBarTitle("Joystick")
     }
 }
 

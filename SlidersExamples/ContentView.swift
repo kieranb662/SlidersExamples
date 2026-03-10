@@ -16,6 +16,7 @@ struct ContentView: View {
                     NavigationLink("LSlider", destination: LSliderExample())
                     NavigationLink("RGB Color Picker", destination: RGBColorPickerExample())
                 }
+                
                 Section(header: Text("RSlider")) {
                     NavigationLink("Default Style", destination: DefaultRSlider())
                     NavigationLink("Knob Style", destination: KnobStyleExample())
@@ -39,9 +40,8 @@ struct ContentView: View {
                 Section(header: Text("Joystick")) {
                     NavigationLink("JoyStick", destination: JoystickExample())
                 }
-                
-                
-            }.navigationBarTitle("Sliders Examples")
+            }
+            .navigationBarTitle("Sliders Examples")
         }
     }
 }

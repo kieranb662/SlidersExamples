@@ -13,6 +13,7 @@ import Sliders
 struct ActivityRingStyle: RSliderStyle {
     var width: CGFloat
     var color: Color
+    
     func makeThumb(configuration: RSliderConfiguration) -> some View {
         ZStack {
             Circle()
@@ -24,11 +25,9 @@ struct ActivityRingStyle: RSliderStyle {
     }
     
     func makeTrack(configuration: RSliderConfiguration) -> some View {
-        let strokeStyle = StrokeStyle(lineWidth: width, lineCap: .butt)
-        
-        return Circle().trim(from: 0, to: CGFloat(configuration.pctFill))
-            .stroke(color, style: strokeStyle)
-        
+        Circle()
+            .trim(from: 0, to: CGFloat(configuration.pctFill))
+            .stroke(color, style: StrokeStyle(lineWidth: width, lineCap: .butt))
     }
 }
 
@@ -44,13 +43,16 @@ struct ActivityRingExample: View {
             RSlider($first)
                 .frame(width: startDiameter, height: startDiameter)
                 .radialSliderStyle(ActivityRingStyle(width: width ,color: Color.green))
+            
             RSlider($second)
                 .frame(width: startDiameter-(2*width), height: startDiameter-(2*width))
                 .radialSliderStyle(ActivityRingStyle(width: width, color: Color.blue))
+            
             RSlider($third)
                 .frame(width: startDiameter-(4*width), height: startDiameter-(4*width))
                 .radialSliderStyle(ActivityRingStyle(width: width, color: Color.red))
-        }.navigationBarTitle("Activity Rings")
+        }
+        .navigationBarTitle("Activity Rings")
     }
 }
 
