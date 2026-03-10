@@ -123,8 +123,6 @@ public class MetalView: NSObject, MTKViewDelegate {
     
     func registerShaders() {
         let input: String?
-        let vert_func: MTLFunction
-        let frag_func: MTLFunction
         do {
             input = shader
             let library = try device.makeLibrary(source: input!, options: nil)
@@ -178,7 +176,7 @@ struct Matrix {
         ]
     }
     
-    func translationMatrix(_ matrix: Matrix, _ position: float3) -> Matrix {
+    func translationMatrix(_ matrix: Matrix, _ position: SIMD3<Float>) -> Matrix {
         var matrix = matrix
         matrix.m[12] = position.x
         matrix.m[13] = position.y
@@ -196,7 +194,7 @@ struct Matrix {
     }
     
     
-    func rotationMatrix(_ matrix: Matrix, _ rot: float3) -> Matrix {
+    func rotationMatrix(_ matrix: Matrix, _ rot: SIMD3<Float>) -> Matrix {
         var matrix = matrix
         matrix.m[0] = cos(rot.y) * cos(rot.z)
         matrix.m[4] = cos(rot.z) * sin(rot.x) * sin(rot.y) - cos(rot.x) * sin(rot.z)
@@ -213,9 +211,9 @@ struct Matrix {
     
     func modelMatrix(matrix: Matrix) -> Matrix {
         var matrix = matrix
-        matrix = rotationMatrix(matrix, float3(0.0, 0.0, 0.1))
+        matrix = rotationMatrix(matrix, SIMD3<Float>(0.0, 0.0, 0.1))
         matrix = scalingMatrix(matrix, 0.25)
-        matrix = translationMatrix(matrix, float3(0.0, 0.5, 0.0))
+        matrix = translationMatrix(matrix, SIMD3<Float>(0.0, 0.5, 0.0))
         return matrix
     }
 }
