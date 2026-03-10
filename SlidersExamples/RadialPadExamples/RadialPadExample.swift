@@ -155,7 +155,7 @@ struct CircularHSBPickerExample: View {
                 .frame(height: 400)
                 .padding(50)
         }
-        .navigationBarTitle("Circular HSB Picker")
+        .navigationTitle("Circular HSB Picker")
     }
 }
 

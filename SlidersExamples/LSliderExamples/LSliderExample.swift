@@ -154,7 +154,7 @@ struct LSliderExample: View {
             }
             .frame(width: 350)
         }
-        .navigationBarTitle("LSlider")
+        .navigationTitle("LSlider")
     }
 }
 

@@ -18,7 +18,7 @@ struct DefaultRadialPad: View {
             RadialPad(offset: $radius, angle: $angle)
                 .frame(width: 200, height: 200)
         }
-        .navigationBarTitle("Default RadialPad Style")
+        .navigationTitle("Default RadialPad Style")
     }
 }
 

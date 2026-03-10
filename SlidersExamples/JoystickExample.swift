@@ -96,7 +96,7 @@ struct JoystickExample: View {
                     })
             )
             .overlay(overlay)
-            .navigationBarTitle("Joystick")
+            .navigationTitle("Joystick")
     }
 }
 

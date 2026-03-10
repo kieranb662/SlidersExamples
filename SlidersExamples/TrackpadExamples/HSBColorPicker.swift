@@ -149,7 +149,7 @@ struct HSBColorPickerExample: View {
             }
             .padding(50)
         }
-        .navigationBarTitle("HSB Color Picker")
+        .navigationTitle("HSB Color Picker")
     }
 }
 

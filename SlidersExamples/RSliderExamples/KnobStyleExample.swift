@@ -18,7 +18,7 @@ struct KnobStyleExample: View {
             RSlider($value)
                 .radialSliderStyle(KnobStyle())
         }
-        .navigationBarTitle("RSlider Knob Style")
+        .navigationTitle("RSlider Knob Style")
     }
 }
 

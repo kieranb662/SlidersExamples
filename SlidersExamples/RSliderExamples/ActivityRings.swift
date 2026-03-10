@@ -52,7 +52,7 @@ struct ActivityRingExample: View {
                 .frame(width: startDiameter-(4*width), height: startDiameter-(4*width))
                 .radialSliderStyle(ActivityRingStyle(width: width, color: Color.red))
         }
-        .navigationBarTitle("Activity Rings")
+        .navigationTitle("Activity Rings")
     }
 }
 

@@ -25,7 +25,7 @@ struct OverflowSliderExample: View {
                 .frame(height: 50)
                 .padding(.horizontal, 30)
         }
-        .navigationBarTitle("Overflow Slider")
+        .navigationTitle("Overflow Slider")
     }
 }
 

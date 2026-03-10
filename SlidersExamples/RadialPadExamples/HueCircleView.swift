@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import UIKit
 import simd
 import MetalKit
 
@@ -221,8 +220,15 @@ struct Matrix {
     }
 }
 
-struct HueCircleMetalView: UIViewRepresentable {
-    typealias UIViewType = MTKView
+#if canImport(UIKit)
+typealias ViewRepresentable = UIViewRepresentable
+#elseif canImport(AppKit)
+typealias ViewRepresentable = NSViewRepresentable
+#else
+
+#endif
+
+struct HueCircleMetalView: ViewRepresentable {
     var size: CGSize
  
     var delegate: MetalView
@@ -231,6 +237,7 @@ struct HueCircleMetalView: UIViewRepresentable {
         self.delegate = MetalView()
     }
     
+#if canImport(UIKit)
     func makeUIView(context: Context) -> MTKView {
         let view = MTKView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height), device: delegate.device)
         view.delegate = delegate
@@ -243,6 +250,23 @@ struct HueCircleMetalView: UIViewRepresentable {
         print("updated")
         
     }
+    
+#elseif canImport(AppKit)
+    func makeNSView(context: Context) -> MTKView {
+        let view = MTKView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height), device: delegate.device)
+        view.delegate = delegate
+       
+        return view
+    }
+    
+    func updateNSView(_ nsView: MTKView, context: Context) {
+        nsView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        print("updated")
+        
+    }
+#else
+
+#endif
 }
 
 

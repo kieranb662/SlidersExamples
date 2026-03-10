@@ -52,20 +52,27 @@ struct RGBSliderStyle: LSliderStyle {
             Circle()
                 .fill(currentColor)
                 .scaleEffect(0.8)
-        }.frame(width: strokeWidth, height: strokeWidth)
+        }
+        .frame(width: strokeWidth, height: strokeWidth)
     }
-
+    
     func makeTrack(configuration: LSliderConfiguration) -> some View {
-        let style: StrokeStyle = .init(lineWidth: strokeWidth, lineCap: .round)
+        let style: StrokeStyle = .init(lineWidth: strokeWidth)
         let gradient = LinearGradient(gradient: Gradient(colors: colors), startPoint: .leading, endPoint: .trailing)
-        return AdaptiveLine(angle: configuration.angle)
-            .stroke(gradient, style: style)
-            .overlay(GeometryReader { proxy in
+        
+        return GeometryReader { geo in
+            ZStack {
+                AdaptiveLine(angle: configuration.angle)
+                    .stroke(gradient, style: style)
+                    .mask(Capsule())
+                
                 Capsule()
                     .stroke(Color.white)
-                    .frame(width: proxy.size.width + self.strokeWidth)
                     .rotationEffect(configuration.angle)
-            })
+            }
+            .frame(width: geo.size.width + strokeWidth)
+            .offset(x: -strokeWidth/2)
+        }
     }
 }
 
@@ -74,7 +81,6 @@ struct RGBColorPicker: View {
     @Binding var green: Double
     @Binding var blue: Double
     
-  
     var sliderHeights: CGFloat = 40
     
     func makeSlider( _ color: RGBSliderStyle.ColorType) -> some View {
@@ -89,7 +95,7 @@ struct RGBColorPicker: View {
         return LSlider(value, range: 0...1, angle: .zero)
             .linearSliderStyle(RGBSliderStyle(strokeWidth: sliderHeights, type: color, color: (red, green, blue)))
             .frame(height: sliderHeights)
-       }
+    }
     
     var body: some View {
         VStack(spacing: 20){
@@ -112,11 +118,11 @@ struct RGBColorPickerExample: View {
             Text(Color(red: red, green: green, blue: blue).description)
         }
     }
+    
     var body: some View {
         ZStack {
-            Color(white: 0.2)
-            
-            VStack(spacing: 50) {
+
+            VStack(spacing: 20) {
                 RoundedRectangle(cornerRadius: 5)
                     .fill(Color(red: red, green: green, blue: blue))
                     .frame(height: 300)
@@ -124,9 +130,14 @@ struct RGBColorPickerExample: View {
                     .overlay(self.overlay)
                 
                 RGBColorPicker(red: $red, green: $green, blue: $blue)
-                
-            }.padding(.horizontal, 40)
-        }.navigationBarTitle("RGB Color Picker")
+                    .frame(maxWidth: 300)
+            }
+            .padding(.horizontal, 40)
+        }
+        .padding(20)
+        .background(Color(white: 0.2))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .navigationTitle("RGB Color Picker")
     }
 }
 

@@ -77,7 +77,7 @@ struct GraphStyleExample: View {
                 .trackPadStyle(GraphStyle())
                 .frame(width: 300, height: 300)
         }
-        .navigationBarTitle("Graph Style Trackpad")
+        .navigationTitle("Graph Style Trackpad")
     }
 }
 

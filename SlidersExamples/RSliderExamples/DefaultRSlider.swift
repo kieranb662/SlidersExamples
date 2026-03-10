@@ -19,7 +19,7 @@ struct DefaultRSlider: View {
             RSlider($value)
                 .frame(width: 200, height: 200)
         }
-        .navigationBarTitle("Default RSlider Style")
+        .navigationTitle("Default RSlider Style")
     }
 }
 

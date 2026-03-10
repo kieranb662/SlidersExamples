@@ -41,7 +41,7 @@ struct ContentView: View {
                     NavigationLink("JoyStick", destination: JoystickExample())
                 }
             }
-            .navigationBarTitle("Sliders Examples")
+            .navigationTitle("Sliders Examples")
         }
     }
 }
