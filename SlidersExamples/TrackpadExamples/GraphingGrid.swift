@@ -36,14 +36,14 @@ public struct CrossHair: View {
     public var body: some View {
         ZStack {
             Circle()
-                .stroke(self.color, lineWidth: 4).frame(width: 40, height: 40)
+                .stroke(color, lineWidth: 4).frame(width: 40, height: 40)
                 .overlay(
                     GeometryReader { (proxy: GeometryProxy) in
                         ZStack {
-                            self.line(angle: 0, proxy: proxy)
-                            self.line(angle: 90, proxy: proxy)
-                            self.line(angle: 180, proxy: proxy)
-                            self.line(angle: 270, proxy: proxy)
+                            line(angle: 0, proxy: proxy)
+                            line(angle: 90, proxy: proxy)
+                            line(angle: 180, proxy: proxy)
+                            line(angle: 270, proxy: proxy)
                         }
                         .offset(CGSize(width: 0, height: proxy.frame(in: .local).height/2))
                     }
@@ -57,8 +57,10 @@ struct GraphStyle: TrackPadStyle {
     func makeThumb(configuration: TrackPadConfiguration) -> some View {
         CrossHair(color: Color.blue, lineLength: 20)
     }
+    
     func makeTrack(configuration: TrackPadConfiguration) -> some View {
-        CartesianGrid(xCount: 7, yCount: 7).stroke(Color.gray)
+        CartesianGrid(xCount: 7, yCount: 7)
+            .stroke(Color.gray)
             .overlay(
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(Color.white)
@@ -80,7 +82,6 @@ struct GraphStyleExample: View {
     }
 }
 
-
 public struct CartesianGrid: Shape {
     public var xCount: Int
     public var yCount: Int
@@ -98,17 +99,16 @@ public struct CartesianGrid: Shape {
         
         return Path { path in
             for i in rangeX {
-                path.move(to: CGPoint(x: CGFloat(i)*w/CGFloat(self.xCount), y: 0))
-                path.addLine(to: CGPoint(x: CGFloat(i)*w/CGFloat(self.xCount), y: h))
+                path.move(to: CGPoint(x: CGFloat(i) * w / CGFloat(xCount), y: 0))
+                path.addLine(to: CGPoint(x: CGFloat(i) * w / CGFloat(xCount), y: h))
             }
             for j in rangeY {
-                path.move(to: CGPoint(x: 0, y: CGFloat(j)*h/CGFloat(self.yCount)))
-                path.addLine(to: CGPoint(x: w, y: CGFloat(j)*h/CGFloat(self.yCount)))
+                path.move(to: CGPoint(x: 0, y: CGFloat(j) * h / CGFloat(yCount)))
+                path.addLine(to: CGPoint(x: w, y: CGFloat(j) * h / CGFloat(yCount)))
             }
         }
     }
 }
-
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {

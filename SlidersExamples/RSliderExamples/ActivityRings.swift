@@ -8,7 +8,6 @@
 import SwiftUI
 import Sliders
 
-
 struct ActivityRingStyle: RSliderStyle {
     var width: CGFloat
     var color: Color
@@ -17,6 +16,7 @@ struct ActivityRingStyle: RSliderStyle {
         ZStack {
             Circle()
                 .fill(configuration.isActive ? color : Color.white)
+            
             Circle()
                 .stroke(configuration.isActive ? color : Color.gray)
         }

@@ -14,6 +14,7 @@ struct RGBSliderStyle: LSliderStyle {
         case green
         case blue
     }
+    
     var strokeWidth: CGFloat
     var type: ColorType
     var color: (red: Double, green: Double, blue: Double)

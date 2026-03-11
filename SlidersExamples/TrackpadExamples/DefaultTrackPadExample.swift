@@ -8,7 +8,6 @@
 import SwiftUI
 import Sliders
 
-
 struct DefaultTrackPadExample: View {
     @State var value: CGPoint = .zero
     @State var x = 0.5
@@ -17,10 +16,12 @@ struct DefaultTrackPadExample: View {
     var body: some View {
         VStack {
             Text("CGPoint initializer")
+            
             TrackPad($value)
                 .frame(width: 200, height: 300)
             
             Text("Two Doubles Initializer")
+            
             TrackPad(x: $x, y: $y)
                 .frame(width: 200, height: 300)
             

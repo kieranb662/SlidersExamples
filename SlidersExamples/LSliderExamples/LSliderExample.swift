@@ -74,7 +74,6 @@ extension Triangle {
     }
 }
 
-
 struct AngleSliderStyle: RSliderStyle {
     func makeThumb(configuration: RSliderConfiguration) -> some View {
         GeometryReader { proxy in
@@ -104,19 +103,22 @@ struct LengthSliderStyle: LSliderStyle {
             .contentShape(Pentagon())
             .rotationEffect(configuration.angle)
     }
+    
     func makeTrack(configuration: LSliderConfiguration) -> some View {
         GeometryReader { proxy in
             ZStack {
-                TickMarks(spacing:  proxy.size.width/20, ticks: 20)
+                TickMarks(spacing: proxy.size.width/20, ticks: 20)
                 .stroke(Color.white)
                 .rotationEffect(configuration.angle)
                 .mask(RoundedRectangle(cornerRadius: 5))
             }
-            .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray))
+            .overlay(
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(Color.gray)
+            )
         }
     }
 }
-
 
 struct LSliderExample: View {
     @State var value: Double = 0

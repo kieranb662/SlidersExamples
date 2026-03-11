@@ -20,7 +20,10 @@ struct OverflowSliderExample: View {
             
             OverflowSlider(value: $value, range: -1000...1000, spacing: 20, isDisabled: false)
                 .mask(Capsule())
-                .overlay(Capsule().stroke(Color.blue))
+                .overlay(
+                    Capsule()
+                        .stroke(Color.blue)
+                )
                 .frame(height: 50)
                 .padding(.horizontal, 30)
         }

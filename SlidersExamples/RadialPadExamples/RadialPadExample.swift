@@ -39,7 +39,6 @@ extension Pentagon: InsettableShape {
     }
 }
 
-
 struct BrightnessSliderStyle: LSliderStyle {
     let hue: Double
     let saturation: Double
@@ -55,6 +54,7 @@ struct BrightnessSliderStyle: LSliderStyle {
         ZStack {
             Pentagon()
                 .fill(color)
+            
             Pentagon()
                 .stroke(Color.white, style: .init(lineWidth: 3, lineJoin: .round))
         }
@@ -67,10 +67,12 @@ struct BrightnessSliderStyle: LSliderStyle {
             ZStack {
                 RoundedRectangle(cornerRadius: 5)
                     .fill(
-                        LinearGradient(gradient: self.gradient,
-                                       startPoint: .leading,
-                                       endPoint: .trailing)
+                        LinearGradient(
+                            gradient: gradient,
+                            startPoint: .leading,
+                            endPoint: .trailing)
                     )
+                
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(Color.white)
             }
@@ -88,16 +90,18 @@ struct SaturationHueRadialPad: RadialPadStyle {
     }
     
     func makeThumb(configuration: RadialPadConfiguration) -> some View {
-        let color = Color(hue: (configuration.angle.degrees/360),
-                          saturation: configuration.radialOffset,
-                          brightness: self.brightness)
-        return ZStack {
+        ZStack {
             Circle()
                 .fill(Color.white)
             
             Circle()
                 .inset(by: 6)
-                .fill(color)
+                .fill(
+                    Color(
+                        hue: configuration.angle.degrees/360,
+                        saturation: configuration.radialOffset,
+                        brightness: brightness)
+                )
         }
         .frame(width: 45, height: 45)
     }
@@ -105,7 +109,7 @@ struct SaturationHueRadialPad: RadialPadStyle {
     func makeTrack(configuration: RadialPadConfiguration) -> some View {
         ZStack {
             Circle()
-                .fill(Color(hue: 0, saturation: 0, brightness: self.brightness))
+                .fill(Color(hue: 0, saturation: 0, brightness: brightness))
             
             HueCircleView()
                 .blendMode(.plusDarker)
@@ -124,17 +128,21 @@ struct CircularHSBColorPicker: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            RadialPad(offset: $saturation,
-                      angle: Binding(get: { Angle(degrees: self.hue*360) },
-                                     set: { self.hue = $0.degrees/360 }))
+            RadialPad(
+                offset: $saturation,
+                angle: Binding(
+                    get: { Angle(degrees: hue*360) },
+                    set: { hue = $0.degrees/360 })
+            )
             .radialPadStyle(SaturationHueRadialPad(brightness: brightness))
             
             LSlider($brightness, range: 0...1, angle: .zero)
                 .linearSliderStyle(
-                    BrightnessSliderStyle(hue: hue,
-                                          saturation: saturation,
-                                          brightness: brightness,
-                                          strokeWidth: sliderHeight)
+                    BrightnessSliderStyle(
+                        hue: hue,
+                        saturation: saturation,
+                        brightness: brightness,
+                        strokeWidth: sliderHeight)
                 )
                 .frame(height: sliderHeight)
         }
