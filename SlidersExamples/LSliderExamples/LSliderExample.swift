@@ -8,7 +8,6 @@
 import SwiftUI
 import Sliders
 
-
 struct Triangle: Shape {
     private var insetAmount: CGFloat = 0
     var leftEdgeCurvature: CGFloat
@@ -89,8 +88,10 @@ struct AngleSliderStyle: RSliderStyle {
             .rotationEffect(configuration.angle)
         }
     }
+    
     func makeTrack(configuration: RSliderConfiguration) -> some View {
-        Circle().fill(Color.gray)
+        Circle()
+            .fill(Color.gray)
     }
 }
 
@@ -108,9 +109,9 @@ struct LengthSliderStyle: LSliderStyle {
         GeometryReader { proxy in
             ZStack {
                 TickMarks(spacing: proxy.size.width/20, ticks: 20)
-                .stroke(Color.white)
-                .rotationEffect(configuration.angle)
-                .mask(RoundedRectangle(cornerRadius: 5))
+                    .stroke(Color.white)
+                    .rotationEffect(configuration.angle)
+                    .mask(RoundedRectangle(cornerRadius: 5))
             }
             .overlay(
                 RoundedRectangle(cornerRadius: 5)
@@ -131,6 +132,7 @@ struct LSliderExample: View {
     var body: some View {
         ZStack {
             Color(white: 0.2)
+            
             VStack(alignment: .leading, spacing: 0) {
                 HStack(alignment: .bottom, spacing: spacing) {
                     LSlider($height, range: -400...(-1), angle: Angle(degrees: 90))
@@ -141,13 +143,14 @@ struct LSliderExample: View {
                         .padding(20)
                         .frame(width: CGFloat(width), height: CGFloat(-height))
                         .border(Color.blue)
-                    
                 }
                 .offset(x: angleSliderRadius/4)
                 
                 HStack(spacing: 0) {
                     RSlider($angle, range: 0...360)
-                        .frame(width: angleSliderRadius, height: angleSliderRadius).radialSliderStyle(AngleSliderStyle())
+                        .frame(width: angleSliderRadius, height: angleSliderRadius)
+                        .radialSliderStyle(AngleSliderStyle())
+                    
                     LSlider($width, range: 1...260, angle: .zero)
                         .frame(height: 40)
                         .linearSliderStyle(LengthSliderStyle())

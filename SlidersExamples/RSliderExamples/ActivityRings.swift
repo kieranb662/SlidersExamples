@@ -44,11 +44,11 @@ struct ActivityRingExample: View {
                 .radialSliderStyle(ActivityRingStyle(width: width ,color: Color.green))
             
             RSlider($second)
-                .frame(width: startDiameter-(2*width), height: startDiameter-(2*width))
+                .frame(width: startDiameter - (2 * width), height: startDiameter - (2 * width))
                 .radialSliderStyle(ActivityRingStyle(width: width, color: Color.blue))
             
             RSlider($third)
-                .frame(width: startDiameter-(4*width), height: startDiameter-(4*width))
+                .frame(width: startDiameter - (4 * width), height: startDiameter - (4 * width))
                 .radialSliderStyle(ActivityRingStyle(width: width, color: Color.red))
         }
         .navigationTitle("Activity Rings")

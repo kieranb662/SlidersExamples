@@ -1,0 +1,31 @@
+## Build generated
+build/
+.build/
+DerivedData/
+
+## Swift Package Manager
+.swiftpm/
+# Exclude the "build" directory within the .swiftpm directory as well
+.swiftpm/build/ 
+
+# Package.resolved should generally be committed for reproducible builds, 
+# but if you need to ignore it for some reason, uncomment the line below.
+# Package.resolved
+
+## Xcode
+.xcodeproj/xcuserdata/
+.xcworkspace/xcuserdata/
+xcuserdata/
+*.xcuserdatad/
+
+# Xcode compatibility files (may no longer apply to modern Xcode versions)
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+
+## macOS
+.DS_Store
+*~
+#*
+.#*

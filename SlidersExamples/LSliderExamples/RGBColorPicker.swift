@@ -49,6 +49,7 @@ struct RGBSliderStyle: LSliderStyle {
             Circle()
                 .fill(Color.white)
                 .shadow(radius: 2)
+            
             Circle()
                 .fill(currentColor)
                 .scaleEffect(0.8)
@@ -57,13 +58,16 @@ struct RGBSliderStyle: LSliderStyle {
     }
     
     func makeTrack(configuration: LSliderConfiguration) -> some View {
-        let style: StrokeStyle = .init(lineWidth: strokeWidth)
-        let gradient = LinearGradient(gradient: Gradient(colors: colors), startPoint: .leading, endPoint: .trailing)
-        
-        return GeometryReader { geo in
+        GeometryReader { geo in
             ZStack {
                 AdaptiveLine(angle: configuration.angle)
-                    .stroke(gradient, style: style)
+                    .stroke(
+                        LinearGradient(
+                            gradient: Gradient(colors: colors),
+                            startPoint: .leading,
+                            endPoint: .trailing),
+                        lineWidth: strokeWidth
+                    )
                     .mask(Capsule())
                 
                 Capsule()
@@ -93,7 +97,12 @@ struct RGBColorPicker: View {
         }()
         
         return LSlider(value, range: 0...1, angle: .zero)
-            .linearSliderStyle(RGBSliderStyle(strokeWidth: sliderHeights, type: color, color: (red, green, blue)))
+            .linearSliderStyle(
+                RGBSliderStyle(
+                    strokeWidth: sliderHeights,
+                    type: color,
+                    color: (red, green, blue))
+            )
             .frame(height: sliderHeights)
     }
     
@@ -110,6 +119,7 @@ struct RGBColorPickerExample: View {
     @State var red: Double = 0.2
     @State var green: Double = 0.5
     @State var blue: Double = 0.8
+    
     var overlay: some View {
         VStack {
             Text("r: \(String(format: "%.0f", red*255))")
@@ -121,7 +131,6 @@ struct RGBColorPickerExample: View {
     
     var body: some View {
         ZStack {
-
             VStack(spacing: 20) {
                 RoundedRectangle(cornerRadius: 5)
                     .fill(Color(red: red, green: green, blue: blue))
